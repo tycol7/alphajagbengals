@@ -18,9 +18,7 @@ const options = {
 function ShowGallery(props) {
     const activeGallery = props.activeGallery;
     const data = props.data;
-    console.log("hello! " + activeGallery);
     if(activeGallery === "kittens") {
-        console.log("kittens!");
         return (
                 <SRLWrapper options={options}>
             {data.kittens.edges.map(edge => {
@@ -29,7 +27,6 @@ function ShowGallery(props) {
                 </SRLWrapper>
         );
     } else if(activeGallery === "kings") {
-        console.log("kings!");
         return (
                 <SRLWrapper options={options}>
             {data.kings.edges.map(edge => {
@@ -38,7 +35,6 @@ function ShowGallery(props) {
             </SRLWrapper>
         );
     } else {
-        console.log("queens!");
         return (
                 <SRLWrapper options={options}>
             {data.queens.edges.map(edge => {
