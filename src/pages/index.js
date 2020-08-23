@@ -10,12 +10,12 @@ export default function Home(props) {
   return (
     <>
       <GatsbySeo
-        title = 'Alpha Jag Bengals'
+        title = 'Alphajag Bengals'
         description = 'Bengal cat breeding in Shoalhaven, New South Wales'b 
         />
     <header id="header">
     <div className="header-content">
-        <h1>Alpha Jag Bengals</h1>
+        <h1>Alphajag Bengals</h1>
         <nav>
             <a href="#about">About</a>
             <a href="#photos">Photos</a>
@@ -31,7 +31,7 @@ export default function Home(props) {
           </div>
             <div>
                 <h2>About Us</h2>
-                <p>At Alpha Jag Bengals, we take pride in our small cattery breeding program. Located in the Shoalhaven region, we were introduced to bengal cats and began breeding them in 2011 using our experience with other breeds. We have totally fallen in love with these cats—not surprising, as they are such characters!</p>
+                <p>At Alphajag Bengals, we take pride in our small cattery breeding program. Located in the Shoalhaven region, we were introduced to bengal cats and began breeding them in 2011 using our experience with other breeds. We have totally fallen in love with these cats—not surprising, as they are such characters!</p>
 
                 <p>The bengal cat is a hybrid between a domestic queen and Asian Leopard cat. They resemble their wild ancestors, but their character is one of a domesticated cat. Personally, we find them very dog-like in nature.</p>
 
@@ -53,8 +53,7 @@ export default function Home(props) {
         </section>
 
         <footer>
-            <a href="#top">Top</a>
-            <p>&copy; Alpha Jag Bengals 2020</p>
+            <p>&copy; AlphajagBengals 2020</p>
         </footer>
       </div>
     </div>

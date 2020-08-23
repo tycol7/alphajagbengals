@@ -234,6 +234,10 @@ footer {
     text-align: center;
 }
 
+.not-found img {
+    max-width: 200px;
+}
+
 @media (max-width: 1224px) {
     body, .container {
         width: auto;
