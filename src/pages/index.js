@@ -25,7 +25,6 @@ export default function Home(props) {
         </nav>
     </div>
 </header>
-        
         <section id="about">
           <div className="hero-wrapper">
           <Img fluid={props.data.hero.childImageSharp.fluid} />

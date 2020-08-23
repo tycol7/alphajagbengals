@@ -25,7 +25,7 @@ const Contact = () => {
           data: new FormData(form)
         })
           .then(r => {
-            handleServerResponse(true, "Form sent - thank you! " + String.fromCodePoint(0x1F60A), form);
+            handleServerResponse(true, "Message sent - thank you! " + String.fromCodePoint(0x1F60A), form);
           })
           .catch(r => {
             handleServerResponse(false, r.response.data.error, form);
