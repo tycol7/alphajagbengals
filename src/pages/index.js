@@ -53,7 +53,7 @@ export default function Home(props) {
         </section>
 
         <footer>
-            <p>&copy; AlphajagBengals 2020</p>
+            <p>&copy; Alphajag Bengals 2020</p>
         </footer>
       </div>
     </div>
