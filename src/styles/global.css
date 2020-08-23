@@ -150,6 +150,7 @@ div.spot-2 {
 
 .gallery div picture {
     min-height: 24vh;
+    cursor: pointer;
 }
 
 #contact{
