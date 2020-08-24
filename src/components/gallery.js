@@ -67,7 +67,7 @@ class Gallery extends React.Component {
             <StaticQuery
             query={graphql`
                 query{
-                    kittens: allFile(sort: { fields: modifiedTime, order: DESC },
+                    kittens: allFile(sort: { fields: changeTime, order: DESC },
                         filter: {relativeDirectory: { eq: "gallery/kittens" }}) {
                         edges {
                             node {
@@ -80,7 +80,7 @@ class Gallery extends React.Component {
                             }
                         }
                     }
-                    kings: allFile(sort: { fields: modifiedTime, order: DESC },
+                    kings: allFile(sort: { fields: changeTime, order: DESC },
                         filter: {relativeDirectory: { eq: "gallery/kings" }}) {
                         edges {
                             node {
@@ -93,7 +93,7 @@ class Gallery extends React.Component {
                             }
                         }
                     }
-                    queens: allFile(sort: { fields: modifiedTime, order: DESC },
+                    queens: allFile(sort: { fields: changeTime, order: DESC },
                         filter: {relativeDirectory: { eq: "gallery/queens" }}) {
                         edges {
                             node {
