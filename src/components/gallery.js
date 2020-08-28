@@ -9,9 +9,6 @@ const options = {
         showDownloadButton: false,
         showFullscreenButton: false,
         showThumbnailsButton: false
-    },
-    caption: {
-        showCaption: false
     }
 };
 
@@ -21,24 +18,24 @@ function ShowGallery(props) {
     if(activeGallery === "kittens") {
         return (
                 <SRLWrapper options={options}>
-            {data.kittens.edges.map(edge => {
-                return <Img key={edge.node.id} fluid={edge.node.childImageSharp.fluid} alt="Kitten" />
+            {data.kittens.images.map(image => {
+                return <Img key={image._key} fluid={image.asset.fluid} alt={image.caption} />
             })}
                 </SRLWrapper>
         );
     } else if(activeGallery === "kings") {
         return (
                 <SRLWrapper options={options}>
-            {data.kings.edges.map(edge => {
-                return <Img key={edge.node.id} fluid={edge.node.childImageSharp.fluid} alt="King" />
+            {data.kings.images.map(image => {
+                return <Img key={image._key} fluid={image.asset.fluid} alt={image.caption} />
             })}
             </SRLWrapper>
         );
     } else {
         return (
                 <SRLWrapper options={options}>
-            {data.queens.edges.map(edge => {
-                return <Img key={edge.node.id} fluid={edge.node.childImageSharp.fluid} alt="Queen" />
+            {data.queens.images.map(image => {
+                return <Img key={image._key} fluid={image.asset.fluid} alt={image.caption} />
             })}
             </SRLWrapper>
         );
@@ -67,43 +64,37 @@ class Gallery extends React.Component {
             <StaticQuery
             query={graphql`
                 query{
-                    kittens: allFile(sort: { fields: birthTime, order: DESC },
-                        filter: {relativeDirectory: { eq: "gallery/kittens" }}) {
-                        edges {
-                            node {
-                                id
-                                childImageSharp {
-                                    fluid(maxWidth: 1000) {
-                                        ...GatsbyImageSharpFluid_noBase64
-                                    }
-                                }
-                            }
+                    kittens: sanityGallery(name: {eq: "Kittens"}) {
+                        images {
+                          _key
+                          caption
+                          asset {
+                              fluid(maxWidth: 1000) {
+                                ...GatsbySanityImageFluid_noBase64
+                              }
+                           }
                         }
                     }
-                    kings: allFile(sort: { fields: birthTime, order: DESC },
-                        filter: {relativeDirectory: { eq: "gallery/kings" }}) {
-                        edges {
-                            node {
-                                id
-                                childImageSharp {
-                                    fluid(maxWidth: 1000) {
-                                        ...GatsbyImageSharpFluid_noBase64
-                                    }
-                                }
-                            }
+                    kings: sanityGallery(name: {eq: "Kings"}) {
+                        images {
+                          _key
+                          caption
+                          asset {
+                              fluid(maxWidth: 1000) {
+                                ...GatsbySanityImageFluid_noBase64
+                              }
+                           }
                         }
                     }
-                    queens: allFile(sort: { fields: birthTime, order: DESC },
-                        filter: {relativeDirectory: { eq: "gallery/queens" }}) {
-                        edges {
-                            node {
-                                id
-                                childImageSharp {
-                                    fluid(maxWidth: 1000) {
-                                        ...GatsbyImageSharpFluid_noBase64
-                                    }
-                                }
-                            }
+                    queens: sanityGallery(name: {eq: "Queens"}) {
+                        images {
+                          _key
+                          caption
+                          asset {
+                              fluid(maxWidth: 1000) {
+                                ...GatsbySanityImageFluid_noBase64
+                              }
+                           }
                         }
                     }
                 }
