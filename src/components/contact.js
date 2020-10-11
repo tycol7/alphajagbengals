@@ -1,41 +1,12 @@
-import React, { useState } from "react"
-import axios from "axios"
+import React from "react"
 
 const Contact = () => {
-    const [serverState, setServerState] = useState({
-        submitting: false,
-        status: null
-      });
-      const handleServerResponse = (ok, msg, form) => {
-        setServerState({
-          submitting: false,
-          status: { ok, msg }
-        });
-        if (ok) {
-          form.reset();
-        }
-      };
-      const handleOnSubmit = e => {
-        e.preventDefault();
-        const form = e.target;
-        setServerState({ submitting: true });
-        axios({
-          method: "post",
-          url: "https://getform.io/f/c4ea14ec-2473-4ea2-a4cd-fa1fa18a57a8",
-          data: new FormData(form)
-        })
-          .then(r => {
-            handleServerResponse(true, "Message sent - thank you! " + String.fromCodePoint(0x1F60A), form);
-          })
-          .catch(r => {
-            handleServerResponse(false, r.response.data.error, form);
-          });
-      };
       return (
         <>
         <div className="form">
             <h2>Contact Us</h2>
-                <form onSubmit={handleOnSubmit}>
+            <form name="contact" method="post" data-netlify="true" data-netlify-honeypot="bot-field">
+            <input type="hidden" name="form-name" value="contact" />
                 <div className="form-group">
                     <label htmlFor="name">Name:</label>
                     <input type="text" className="form-control" name="name" required="required" />
@@ -48,17 +19,7 @@ const Contact = () => {
                     <label htmlFor="message">Message:</label>
                     <textarea name="message" className="form-control" rows="4" required="required"></textarea>
                 </div>
-                {!serverState.status && (
-                    <button type="submit" disabled={serverState.submitting}>Submit</button>
-                )}
-                {serverState.status && (
-                <p className={!serverState.status.ok ? "errorMsg" : ""}>
-                    {!serverState.status.ok && (
-                        <button type="submit" disabled={serverState.submitting}>Submit</button>
-                    )}
-                {serverState.status.msg}
-                </p>
-            )}
+                <button type="submit">Send</button>
                 </form>
             </div>
             <div className="affiliates">

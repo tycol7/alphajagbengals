@@ -53,7 +53,7 @@ export default function Home(props) {
         </section>
 
         <footer>
-            <p>&copy; Alphajag Bengals 2020</p>
+            <p>Holding deposits are non-refundable but are transferable to another kitten</p>
         </footer>
       </div>
     </div>
